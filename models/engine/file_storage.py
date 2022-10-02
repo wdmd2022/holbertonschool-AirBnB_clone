@@ -44,5 +44,7 @@ class FileStorage:
         if os.path.exists(self.__file_path):
             with open(self.__file_path, 'r') as file_that_exists:
                 deserialized_dict = json.load(file_that_exists)
+                for key in deserialized_dict:
+                    self.__objects[key] = getattr(deserialized_dict[key])
                 # THIS IS WHERE I LEFT OFF
                 # THIS FUNCTION IS NOT DONE
