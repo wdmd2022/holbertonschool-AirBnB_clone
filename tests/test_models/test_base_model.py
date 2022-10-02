@@ -33,6 +33,7 @@ class Test_BaseModel_Documentation(unittest.TestCase):
         """Checks for documentation of to_dict() method"""
         self.assertGreaterEqual(len(BaseModel.to_dict.__doc__), 1)
 
+
 class Test_BaseModel(unittest.TestCase):
     """Checks initializing"""
 
@@ -40,6 +41,7 @@ class Test_BaseModel(unittest.TestCase):
         """Checks to see the object is created"""
         obj = BaseModel()
         self.assertIsNotNone(obj)
+
 
 class Test_BaseModel_Attributes(unittest.TestCase):
     """Tests the attributes in BaseModel"""
@@ -80,6 +82,7 @@ class Test_BaseModel_Attributes(unittest.TestCase):
         o = BaseModel()
         self.assertTrue(o.updated_at.fromisoformat(str(o.updated_at)))
 
+
 class Test_Multiple_Instances(unittest.TestCase):
     def test_two_instances(self):
         """Checks for proper function with
@@ -104,6 +107,7 @@ class Test_Multiple_Instances(unittest.TestCase):
         self.assertIsInstance(i2.created_at, object)
         self.assertIsInstance(i2.updated_at, object)
 
+
 class TestBaseModelMethods(unittest.TestCase):
     """Checks methods implemented in BaseModel"""
 
@@ -111,14 +115,15 @@ class TestBaseModelMethods(unittest.TestCase):
         """Checks __str__() method"""
         obj = BaseModel()
         self.assertEqual(obj.__str__(), (f"[{obj.__class__.__name__}] "
-                                       f"({obj.id}) {obj.__dict__}"))
+                                         f"({obj.id}) {obj.__dict__}"))
 
     def test_to_dict(self):
         """Checks to_dict() method"""
         o = BaseModel()
         self.assertIsInstance(o.to_dict(), dict)
 
-#Add cases for the save method to be created
+# Add cases for the save method to be created
+
 
 if __name__ == '__main__':
     unittest.main()
