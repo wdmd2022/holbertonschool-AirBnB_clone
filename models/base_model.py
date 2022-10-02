@@ -35,22 +35,24 @@ class BaseModel:
             self.updated_at = datetime.now()
 
     def __str__(self):
-        """ Override the string to print [<class name>] (<self.id>) <self.__dict__>"""
-        return ("[{}] ({}) {}".format(__class__.__name__, self.id, self.__dict__))
+        """ Override the string to print
+        [<class name>] (<self.id>) <self.__dict__>"""
+        return ("[{}] ({}) {}".format(__class__.__name__, self.id,
+                                      self.__dict__))
 
     def save(self):
         """ Updates the public instance attribute updated_at
         with the current date and time"""
         self.updated_at = datetime.now()
-        #add storage system and save the file
+        # add storage system and save the file
 
     def to_dict(self):
         """ Returns a dictionary containing all of the
         keys and values of the __dict__ of the instance"""
         return_dict = self.__dict__.copy()
         return_dict["__class__"] = self.__class__.__name__
-        if isinstance(return_dict["created_at"], str) != True:
+        if isinstance(return_dict["created_at"], str) is not True:
             return_dict["created_at"] = self.created_at.isoformat()
-        if isinstance(return_dict["updated_at"], str) != True:
+        if isinstance(return_dict["updated_at"], str) is not True:
             return_dict["updated_at"] = self.updated_at.isoformat()
         return return_dict
