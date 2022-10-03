@@ -39,7 +39,8 @@ class FileStorage:
         pydict = FileStorage.__objects
         for key in pydict.keys():
             dicty.update({key : pydict[key].to_dict()})
-
+        with open(self.__file_path, 'w') as a_file:
+            json.dump(dicty, a_file)
 
     # def save(self):
     #     """serializes the dictionary __objects to the JSON file with the
