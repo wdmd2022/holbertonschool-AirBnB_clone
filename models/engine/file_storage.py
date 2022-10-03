@@ -70,13 +70,13 @@ class FileStorage:
         doesn't even raise an exception because we're extremely reasonable
         people who write extremely reasonable code"""
         # if os.path.exists(self.__file_path):
-        classreturn = classreturn(self)
+        classic = self.classreturn()
         try:
             with open(self.__file_path, 'r') as file_that_exists:
                 deserialized_dict = json.load(file_that_exists)
                 for key, value in deserialized_dict.items():
                     classtype = value["__class__"]
-                    self.__objects[key] = classreturn[classtype](**value)
+                    self.__objects[key] = classic[classtype](**value)
         except Exception:
             pass
                 # THIS IS WHERE I LEFT OFF
