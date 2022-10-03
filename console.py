@@ -121,12 +121,41 @@ class HBNBCommand(cmd.Cmd):
         If the class name doesn't exist, prints:
             ** class doesn't exist **
         """
-        pass
+        if len(args) == 0:
+            for khei in storage.all():
+                print([str(storage.all()[khei])])
+        elif args not in class_example.keys():
+            print("** class doesn't exist **")
+        else:
+            for keii, value in storage.all().items():
+                key_arg = keii.split()
+                if args == key_arg[0]:
+                    print([str(storage.all()[keii])])
 
     def do_update(self, args):
         """Updates an instance based on the class name and ID or
         by adding or updating attributes (saved to the JSON file)"""
+        args_list = args.split()
+        if len(args) < 1:
+            print("** class name missing **")
+        elif len(args_list) < 2:
+            print("** instance id missing **")
+        elif len(args_list) < 3:
+            print("** attribute name missing **")
+        elif len(args_list) < 4:
+            print("** value missing **")
+        elif args_list[0] not in class_example.keys():
+            print("** class doesn't exist **")
+        else:
+            obj_search = args_list[0] + "." + args_list[1]
+            obj_all = storage.all()
+            if obj_search in obj_all:
+                setattr(obj_all[obj_search], args_list[2],
+                        args_list[3].strip('\'"'))
+            else:
+                print("** no instance found **")
 
+#Bugs pending. Init runs for all functions needed.
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
