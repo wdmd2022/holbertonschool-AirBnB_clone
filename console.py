@@ -80,6 +80,26 @@ class HBNBCommand(cmd.Cmd):
         else:
             print("** class doesn't exist **")
 
+    def do_create(self, args):
+        """ Creates an instance based on the class name
+        and saves the change into the JSON file
+        If the class name is missing, print:
+        ** class name missing **
+
+        If the class name does not exist, print:
+        ** class doesn't exist **
+        """
+        args_list = args.split(" ")
+        if len(args) == 0:
+            print("** class name missing **")
+        elif args_list[0] in class_example.keys():
+            objtomake = class_example[args_list[0]]
+            newobj = objtomake()
+            print(newobj.id)
+            storage.save()
+        else:
+            print("** class doesn't exist **")
+
     def do_destroy(self, args):
         """ Deletes an instance based on the class name and id
         and saves the change into the JSON file
