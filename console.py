@@ -95,7 +95,23 @@ class HBNBCommand(cmd.Cmd):
         If the instance of the class name does not exist for the id, print:
         ** no instance found **
         """
-        pass
+        args_list = args.split(" ")
+        if len(args) == 0:
+            print("** class name missing **")
+        elif args_list[0] in class_example.keys():
+            if len(args_list) == 1:
+                print("** instance id missing **")
+            else:
+                obj_search = args_list[0] + "." + args_list[1]
+                obj_all = storage.all()
+                if obj_search in obj_all:
+                    del obj_all[obj_search]
+                    storage.save()
+                else:
+                    print("** no instance found **")
+        else:
+            print("** class doesn't exist **")
+
 
     def do_all(self, args):
         """Prints all string representation of all object instances
@@ -110,7 +126,7 @@ class HBNBCommand(cmd.Cmd):
     def do_update(self, args):
         """Updates an instance based on the class name and ID or
         by adding or updating attributes (saved to the JSON file)"""
-        pass
+
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
