@@ -2,6 +2,7 @@
 """This module holds the command interpreter"""
 
 import cmd
+from re import I
 import readline
 from models.engine.file_storage import FileStorage
 from models import storage
@@ -146,11 +147,19 @@ class HBNBCommand(cmd.Cmd):
                 print([str(storage.all()[khei])])
         elif args not in class_example.keys():
             print("** class doesn't exist **")
+        # else:
+        #     for keii, value in storage.all().items():
+        #         key_arg = keii.split()
+        #         if args == key_arg[0]:
+        #             print([str(storage.all()[keii])])
         else:
-            for keii, value in storage.all().items():
-                key_arg = keii.split()
-                if args == key_arg[0]:
-                    print([str(storage.all()[keii])])
+            for i in storage.all():
+                if args in i:
+                    print([str(storage.all()[i])])
+            # for keii, value in storage.all().items():
+            #    for k, v in value.items():
+            #        if args[0] in v:
+            #            print[str(storage.all()[keii])]
 
     def do_update(self, args):
         """Updates an instance based on the class name and ID or
