@@ -39,7 +39,7 @@ class BaseModel:
     def __str__(self):
         """ Override the string to print
         [<class name>] (<self.id>) <self.__dict__>"""
-        return ("[{}] ({}) {}".format(__class__.__name__, self.id,
+        return ("[{}] ({}) {}".format(self.__class__.__name__, self.id,
                                       self.__dict__))
 
     def save(self):

@@ -12,10 +12,11 @@ from models.amenity import Amenity
 from models.place import Place
 from models.review import Review
 
+
 class FileStorage:
     """class that serializes instances to a JSON file, and
     deserializes a JSON file to instances"""
-    
+
     __file_path = "file.json"
     __objects = {}
 
@@ -24,7 +25,7 @@ class FileStorage:
         i.e., a BaseModel object with id=8675309 would be stored with the
         key BaseModel.8675309"""
         return self.__objects
-    
+
     def new(self, obj):
         """sets in the dictionary __objects, the obj and gives it the key
         in the format of <obj class name>.id"""
@@ -37,7 +38,7 @@ class FileStorage:
         dicty = {}
         pydict = FileStorage.__objects
         for key in pydict.keys():
-            dicty.update({key : pydict[key].to_dict()})
+            dicty.update({key: pydict[key].to_dict()})
         with open(self.__file_path, 'w') as a_file:
             json.dump(dicty, a_file)
 
@@ -53,8 +54,7 @@ class FileStorage:
             "Review": Review
             }
         return class_dict
-    
-    
+
     def reload(self):
         """deserializes the JSON file with the path of '__file_path' to
         __objects, if it exists; otherwise, this method does nothing and
@@ -70,5 +70,3 @@ class FileStorage:
                     self.__objects[key] = classic[classtype](**value)
         except Exception:
             pass
-                # THIS IS WHERE I LEFT OFF
-                # THIS FUNCTION IS NOT DONE
