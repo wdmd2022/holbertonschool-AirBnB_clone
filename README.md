@@ -1,11 +1,11 @@
 <h1 align="center">HolbertonBnB</h1>
-<p align="center">An AirBnB clone.</p>
+<p align="center">An AirBnB back-end with console.</p>
 
 ---
 
 ## Storage :baggage_claim:
 
-The above classes are handled by the abstracted storage engine defined in the
+The integrated classes are handled by the abstracted storage engine defined in the
 [FileStorage](./models/engine/file_storage.py) class.
 
 Every time the backend is initialized, HolbertonBnB instantiates an instance of
