@@ -25,7 +25,6 @@ class FileStorage:
         key BaseModel.8675309"""
         return self.__objects
     
-    
     def new(self, obj):
         """sets in the dictionary __objects, the obj and gives it the key
         in the format of <obj class name>.id"""
@@ -41,15 +40,6 @@ class FileStorage:
             dicty.update({key : pydict[key].to_dict()})
         with open(self.__file_path, 'w') as a_file:
             json.dump(dicty, a_file)
-
-    # def save(self):
-    #     """serializes the dictionary __objects to the JSON file with the
-    #     path of __file_path, which allows us to store the objects"""
-    #     dicttodump = {}
-    #     for quay in self.__objects:
-    #         dicttodump[quay] = self.__objects[quay].to_dict()
-    #     with open(self.__file_path, 'w') as a_file:
-    #         json.dump(dicttodump, a_file)
 
     def classreturn(self):
         """returns the classes associated with the strings of their names"""
