@@ -17,14 +17,13 @@ from models.review import Review
 
 
 class_example = {"BaseModel": BaseModel,
-               "User": User,
-               "State": State,
-               "City": City,
-               "Amenity": Amenity,
-               "Place": Place,
-               "Review": Review
-               }
-
+                 "User": User,
+                 "State": State,
+                 "City": City,
+                 "Amenity": Amenity,
+                 "Place": Place,
+                 "Review": Review
+                 }
 
 
 class HBNBCommand(cmd.Cmd):
@@ -133,7 +132,6 @@ class HBNBCommand(cmd.Cmd):
         else:
             print("** class doesn't exist **")
 
-
     def do_all(self, args):
         """Prints all string representation of all object instances
         based on the class name given.
@@ -183,8 +181,6 @@ class HBNBCommand(cmd.Cmd):
                         args_list[3].strip('\'"'))
             else:
                 print("** no instance found **")
-
-#Bugs pending. Init runs for all functions needed.
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
