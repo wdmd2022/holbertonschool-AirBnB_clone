@@ -16,12 +16,8 @@
     width: 20%;
     border: none;
     border-radius: 4px;
-    /* 
-    position: relative;
-    float: right; */
     margin-right: 30px;
     margin-left: auto;
-    /* margin-top: 11px; */
 }
 
 .filters button:hover {
@@ -48,4 +44,41 @@
 
 .filters .locations {
     border-right: 1px #DDDDDD solid;
+}
+
+.filters .popover {
+    display: none;
+    background-color: #FAFAFA;
+    opacity: 100%;
+    border: 1px #DDDDDD solid;
+    border-radius: 4px;
+    list-style-type: none;
+    padding-bottom: 20px;
+}
+
+.filters div:hover .popover {
+    display: block;
+    z-index: 100;
+    position: relative;
+}
+
+.filters .popover h2 {
+    font-size: 16px;
+    margin-top: 20px;
+    margin-left: 5px;
+    margin-bottom: 5px;
+}
+
+.filters .popover ul {
+    list-style-type: none;
+}
+
+.filters .popover li {
+    padding-bottom: 2px;
+    margin-left: -15px;
+}
+
+.amenities ul {
+    padding-top: 20px;
+    padding-left: 65px;
 }
